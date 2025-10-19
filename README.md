@@ -24,8 +24,8 @@ Aplikasi SICMAS merupakan sistem yang dirancang untuk keperluan kuliah Pemrogram
 **CATATAN**
 
 * Dalam kode terdapat komentar di setiap proses/fitur
-* Sistem ini menggunakan template AdminLTE v4.0.0-rc4
-* Template Berbasiskan Bootstrap 5
+* Sistem ini menggunakan template AdminLTE v4.0.0-rc4 [https://adminlte.io/](https://adminlte.io/)
+* Template Berbasiskan Bootstrap 5.3 [https://getbootstrap.com/docs/5.3/](https://getbootstrap.com/docs/5.3/)
 * Untuk mengganti icon silakan cari disini [https://icons.getbootstrap.com/](https://icons.getbootstrap.com/)
 * Silakan sesuaikan dengan topik tugas dan modifikasi
 * Point plus jika membuat suatu inovasi
