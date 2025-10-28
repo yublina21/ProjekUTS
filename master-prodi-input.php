@@ -28,12 +28,12 @@ if(isset($_GET['status'])){
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-sm-6">
-								<h3 class="mb-0">Input Program Studi</h3>
+								<h3 class="mb-0">Input Daftar Menu</h3>
 							</div>
 							<div class="col-sm-6">
 								<ol class="breadcrumb float-sm-end">
-									<li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Input Prodi</li>
+									<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Input Menu</li>
 								</ol>
 							</div>
 						</div>
@@ -46,7 +46,7 @@ if(isset($_GET['status'])){
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Formulir Program Studi</h3>
+										<h3 class="card-title">Formulir Data Menu</h3>
 										<div class="card-tools">
 											<button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
 												<i data-lte-icon="expand" class="bi bi-plus-lg"></i>
@@ -60,11 +60,11 @@ if(isset($_GET['status'])){
                                     <form action="proses/proses-prodi.php?aksi=inputprodi" method="POST">
 									    <div class="card-body">
                                             <div class="mb-3">
-                                                <label for="nama" class="form-label">Kode Program</label>
+                                                <label for="nama" class="form-label">Kode menu</label>
                                                 <input type="text" class="form-control" id="kode" name="kode" placeholder="Masukkan Kode Program Studi" required>
                                             </div>
 											<div class="mb-3">
-												<label for="nama" class="form-label">Nama Program Studi</label>
+												<label for="nama" class="form-label">Nama menu</label>
 												<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Program Studi" required>
 											</div>
                                         </div>
