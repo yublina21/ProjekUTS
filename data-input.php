@@ -36,12 +36,12 @@ if(isset($_GET['status'])){
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-sm-6">
-								<h3 class="mb-0">Input Mahasiswa</h3>
+								<h3 class="mb-0">Input Menu</h3>
 							</div>
 							<div class="col-sm-6">
 								<ol class="breadcrumb float-sm-end">
-									<li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Input Data</li>
+									<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+									<li class="breadcrumb-item active" aria-current="page">Input Menu</li>
 								</ol>
 							</div>
 						</div>
@@ -54,7 +54,7 @@ if(isset($_GET['status'])){
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header">
-										<h3 class="card-title">Formulir Mahasiswa</h3>
+										<h3 class="card-title">Formulir Data Menu</h3>
 										<div class="card-tools">
 											<button type="button" class="btn btn-tool" data-lte-toggle="card-collapse" title="Collapse">
 												<i data-lte-icon="expand" class="bi bi-plus-lg"></i>
@@ -68,40 +68,24 @@ if(isset($_GET['status'])){
                                     <form action="proses/proses-input.php" method="POST">
 									    <div class="card-body">
                                             <div class="mb-3">
-                                                <label for="nim" class="form-label">Nomor Induk Mahasiswa (NIM)</label>
-                                                <input type="number" class="form-control" id="nim" name="nim" placeholder="Masukkan NIM Mahasiswa" required>
+                                                <label for="nama" class="form-label">Nama Menu</label>
+                                                <input type="text" class="form-control" id="nim" name="nim" placeholder="Masukkan nama Menu" required>
                                             </div>
                                             <div class="mb-3">
-                                                <label for="nama" class="form-label">Nama Lengkap</label>
-                                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Lengkap Mahasiswa" required>
-                                            </div>
+                                                <label for="kategori" class="form-label">Kategori</label>
+                                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan kategori menu" required>
                                             <div class="mb-3">
-                                                <label for="prodi" class="form-label">Program Studi</label>
+                                                <label for="harga" class="form-label">Harga</label>
+                                                <input type="number" class="form-control" id="nama" name="nama" placeholder="Masukkan harga menu" required>
+                                            </div>           
+                                            <div class="mb-3">
+                                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan deskripsi menu" required>
+                                            </div>   
+                                            <div class="mb-3">
+                                                <label for="prodi" class="form-label">Status ketersediaan</label>
                                                 <select class="form-select" id="prodi" name="prodi" required>
-                                                    <option value="" selected disabled>Pilih Program Studi</option>
-                                                    <?php 
-                                                    // Iterasi daftar program studi dan menampilkannya sebagai opsi dalam dropdown
-                                                    foreach ($prodiList as $prodi){
-                                                        echo '<option value="'.$prodi['id'].'">'.$prodi['nama'].'</option>';
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="alamat" class="form-label">Alamat</label>
-                                                <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat Lengkap Sesuai KTP" required></textarea>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="provinsi" class="form-label">Provinsi</label>
-                                                <select class="form-select" id="provinsi" name="provinsi" required>
-                                                    <option value="" selected disabled>Pilih Provinsi</option>
-                                                    <?php
-                                                    // Iterasi daftar provinsi dan menampilkannya sebagai opsi dalam dropdown
-                                                    foreach ($provinsiList as $provinsi){
-                                                        echo '<option value="'.$provinsi['id'].'">'.$provinsi['nama'].'</option>';
-                                                    }
-                                                    ?>
-                                                </select>
+                                                <option value="" selected disabled>Pilih status ketersediaan</option>    
                                             </div>
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>

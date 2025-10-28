@@ -2,7 +2,7 @@
     <div class="sidebar-brand">
         <a href="index.php" class="brand-link">
             <img src="assets/img/logo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
-            <span class="brand-text fw-light">EPIC-CRUD</span>
+            <span class="brand-text fw-light">EPIC</span>
         </a>
     </div>
 
