@@ -130,7 +130,7 @@ if(isset($_GET['search'])){
 															<td>'.$mahasiswa['email'].'</td>
 															<td class="text-center">'.$mahasiswa['status'].'</td>
 															<td class="text-center">
-																<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'data-edit.php?id='.$mahasiswa['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
+																<button onclick="window.location.href='data-edit.php?id=<?php echo $mahasiswa['id']; ?>'">Edit</button>
 																<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data mahasiswa ini?\')){window.location.href=\'proses/proses-delete.php?id='.$mahasiswa['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
 															</td>
 														</tr>';

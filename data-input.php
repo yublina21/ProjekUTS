@@ -1,18 +1,18 @@
 <?php 
 
-include_once 'config/class-master.php';
-$master = new MasterData();
-// Mengambil daftar program studi, provinsi, dan status mahasiswa
-$prodiList = $master->getProdi();
-// Mengambil daftar provinsi
-$provinsiList = $master->getProvinsi();
-// Mengambil daftar status mahasiswa
-$statusList = $master->getStatus();
+include_once 'config/class-menu.php';
+$menu = new Menu();
+
+// Daftar status menu (bukan status mahasiswa)
+$statusList = [
+    ['id' => 1, 'nama' => 'Tersedia'],
+    ['id' => 2, 'nama' => 'Tidak Tersedia']
+];
 // Menampilkan alert berdasarkan status yang diterima melalui parameter GET
-if(isset($_GET['status'])){
-    // Mengecek nilai parameter GET 'status' dan menampilkan alert yang sesuai menggunakan JavaScript
-    if($_GET['status'] == 'failed'){
-        echo "<script>alert('Gagal menambahkan data mahasiswa. Silakan coba lagi.');</script>";
+if (isset($_GET['status'])) {
+    if ($_GET['status'] == 'failed') {
+        echo "<script>alert('Gagal menambahkan data menu. Silakan coba lagi.');</script>";
+
     }
 }
 ?>
@@ -69,32 +69,19 @@ if(isset($_GET['status'])){
 									    <div class="card-body">
                                             <div class="mb-3">
                                                 <label for="nama" class="form-label">Nama Menu</label>
-                                                <input type="text" class="form-control" id="nim" name="nim" placeholder="Masukkan nama Menu" required>
+                                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama Menu" required>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="kategori" class="form-label">Kategori</label>
-                                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan kategori menu" required>
+                                                <input type="text" class="form-control" id="kategori" name="kategori" placeholder="Masukkan kategori menu" required>
                                             <div class="mb-3">
                                                 <label for="harga" class="form-label">Harga</label>
-                                                <input type="number" class="form-control" id="nama" name="nama" placeholder="Masukkan harga menu" required>
+                                                <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan harga menu" required>
                                             </div>           
                                             <div class="mb-3">
                                                 <label for="deskripsi" class="form-label">Deskripsi</label>
-                                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan deskripsi menu" required>
+                                                <input type="text" class="form-control" id="deskripsi" name="deskripsi" placeholder="Masukkan deskripsi menu" required>
                                             </div>   
-                                            <div class="mb-3">
-                                                <label for="prodi" class="form-label">Status ketersediaan</label>
-                                                <select class="form-select" id="prodi" name="prodi" required>
-                                                <option value="" selected disabled>Pilih status ketersediaan</option>    
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="email" class="form-label">Email</label>
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email Valid dan Benar" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="telp" class="form-label">Nomor Telepon</label>
-                                                <input type="tel" class="form-control" id="telp" name="telp" placeholder="Masukkan Nomor Telpon/HP" pattern="[0-9+\-\s()]{6,20}" required>
-                                            </div>
                                             <div class="mb-3">
                                                 <label for="status" class="form-label">Status</label>
                                                 <select class="form-select" id="status" name="status" required>
@@ -109,9 +96,10 @@ if(isset($_GET['status'])){
                                             </div>
                                         </div>
 									    <div class="card-footer">
-                                            <button type="button" class="btn btn-danger me-2 float-start" onclick="window.location.href='data-list.php'">Batal</button>
-                                            <button type="reset" class="btn btn-secondary me-2 float-start">Reset</button>
-                                            <button type="submit" class="btn btn-primary float-end">Submit</button>
+										<button type="button" class="btn btn-danger me-2 float-start" onclick="window.location.href='data-list.php'">Batal</button>
+										<button type="reset" class="btn btn-secondary me-2 float-start">Reset</button>
+										<button type="submit" class="btn btn-primary float-end">Submit</button>
+
                                         </div>
                                     </form>
 								</div>

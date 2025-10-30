@@ -1,7 +1,7 @@
 <?php
 
 include_once 'config/class-menu.php';
-$mahasiswa = new Mahasiswa();
+$menu = new Menu();
 // Menampilkan alert berdasarkan status yang diterima melalui parameter GET
 if(isset($_GET['status'])){
 	// Mengecek nilai parameter GET 'status' dan menampilkan alert yang sesuai menggunakan JavaScript
@@ -15,7 +15,7 @@ if(isset($_GET['status'])){
 		echo "<script>alert('Gagal menghapus data menu. Silakan coba lagi.');</script>";
 	}
 }
-$dataMahasiswa = $menu->getAllMenu();
+$datamenu = $menu->getAllMenu();
 
 ?>
 <!doctype html>
@@ -49,7 +49,6 @@ $dataMahasiswa = $menu->getAllMenu();
 						</div>
 					</div>
 				</div>
-
 				<div class="app-content">
 					<div class="container-fluid">
 						<div class="row">
@@ -73,40 +72,37 @@ $dataMahasiswa = $menu->getAllMenu();
 												<tr>
 													<th>No</th>
 													<th>Nama Menu</th>
-													<th>Harga Satuan</th>
+													<th>Kategori</th>
+													<th>Harga</th>
 													<th>Deskripsi</th>
 													<th class="text-center">Status</th>
-													<th class="text-center">Aksi</th>
 												</tr>
 											</thead>
 											<tbody>
 												<?php
-													if(count($dataMenu) == 0){
+													if(count($datamenu) == 0){
 													    echo '<tr class="align-middle">
 															<td colspan="10" class="text-center">Tidak ada data menu.</td>
 														</tr>';
 													} else {
-														foreach ($dataMmenu as $index => $menu){
+														foreach ($datamenu as $index => $menu){
 															if($menu['status'] == 1){
-															    $menu['status'] = '<span class="badge bg-success">Aktif</span>';
+															    $menu['status'] = '<span class="badge bg-success">Tersedia</span>';
 															} elseif($menu['status'] == 2){
-															    $menu['status'] = '<span class="badge bg-danger">Tidak Aktif</span>';
-															} elseif($menu['status'] == 3){
-															    $menu['status'] = '<span class="badge bg-warning text-dark">Cuti</span>';
-															} elseif($menu['status'] == 4){
-															    $menu['status'] = '<span class="badge bg-primary">Lulus</span>';
+															    $menu['status'] = '<span class="badge bg-danger">Tidak tersedia</span>';
 															} 
 															echo '<tr class="align-middle">
-																<td>'.($index + 1).'</td>
-																<td>'.$menu['nama'].'</td>
-																<td>'.$menu['harga'].'</td>
-																<td>'.$menu['deskripsi'].'</td>
-																<td class="text-center">'.$menu['status'].'</td>
-																<td class="text-center">
-																	<button type="button" class="btn btn-sm btn-warning me-1" onclick="window.location.href=\'data-edit.php?id='.$mahasiswa['id'].'\'"><i class="bi bi-pencil-fill"></i> Edit</button>
-																	<button type="button" class="btn btn-sm btn-danger" onclick="if(confirm(\'Yakin ingin menghapus data menu ini?\')){window.location.href=\'proses/proses-delete.php?id='.$mahasiswa['id'].'\'}"><i class="bi bi-trash-fill"></i> Hapus</button>
-																</td>
-															</tr>';
+															<td>'.($index + 1).'</td>
+															<td>'.$menu['nama'].'</td>
+															<td>'.$menu['kategori'].'</td>
+															<td>'.$menu['harga'].'</td>
+															<td>'.$menu['deskripsi'].'</td>
+															<td class="text-center">'.$menu['status'].'</td>
+															<td class="text-center">
+															<a href="data-edit.php?id='.$menu['id'].'" class="btn btn-sm btn-warning me-1">Edit</a>
+															<a href="proses/proses-delete.php?id='.$menu['id'].'" class="btn btn-sm btn-danger" onclick="return confirm(\'Yakin ingin menghapus?\')">Hapus</a>
+															</td>
+														</tr>';
 														}
 													}
 												?>
@@ -114,7 +110,7 @@ $dataMahasiswa = $menu->getAllMenu();
 										</table>
 									</div>
 									<div class="card-footer">
-										<button type="button" class="btn btn-primary" onclick="window.location.href='data-input.php'"><i class="bi bi-plus-lg"></i> Tambah Menu</button>
+										<button type="button" class="btn btn-primary" onclick="window.location.href='data-edit.php'"><i class="bi bi-plus-lg"></i> Tambah Menu</button>
 									</div>
 								</div>
 							</div>

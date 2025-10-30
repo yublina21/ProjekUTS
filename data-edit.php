@@ -1,9 +1,7 @@
 <?php 
 
-include_once 'config/class-master.php';
-include_once 'config/class-mahasiswa.php';
-$master = new MasterData();
-$mahasiswa = new Mahasiswa();
+include_once 'config/class-menu.php';
+$menu = new Menu();
 // Mengambil daftar program studi, provinsi, dan status mahasiswa
 $prodiList = $master->getProdi();
 // Mengambil daftar provinsi
@@ -43,7 +41,7 @@ if(isset($_GET['status'])){
 							<div class="col-sm-6">
 								<ol class="breadcrumb float-sm-end">
 									<li class="breadcrumb-item"><a href="index.php">Home</a></li>
-									<li class="breadcrumb-item active" aria-current="page">Edit Data</li>
+									<li class="breadcrumb-item active" aria-current="page">Edit Menu</li>
 								</ol>
 							</div>
 						</div>
@@ -96,7 +94,7 @@ if(isset($_GET['status'])){
                                             </div>
                                             <div class="mb-3">
                                                 <label for="alamat" class="form-label">Deskripsi</label>
-                                                <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan Alamat Lengkap Sesuai KTP" required><?php echo $dataMahasiswa['alamat']; ?></textarea>
+                                                <textarea class="form-control" id="alamat" name="alamat" rows="3" placeholder="Masukkan deskripsi Lengkap dari kmenu tersebut" required><?php echo $dataMahasiswa['alamat']; ?></textarea>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="provinsi" class="form-label">Provinsi</label>
