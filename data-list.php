@@ -33,7 +33,6 @@ $datamenu = $menu->getAllMenu();
 			<?php include 'template/sidebar.php'; ?>
 
 			<main class="app-main">
-
 				<div class="app-content-header">
 					<div class="container-fluid">
 						<div class="row">
@@ -79,33 +78,37 @@ $datamenu = $menu->getAllMenu();
 												</tr>
 											</thead>
 											<tbody>
-												<?php
-													if(count($datamenu) == 0){
-													    echo '<tr class="align-middle">
-															<td colspan="10" class="text-center">Tidak ada data menu.</td>
-														</tr>';
-													} else {
-														foreach ($datamenu as $index => $menu){
-															if($menu['status'] == 1){
-															    $menu['status'] = '<span class="badge bg-success">Tersedia</span>';
-															} elseif($menu['status'] == 2){
-															    $menu['status'] = '<span class="badge bg-danger">Tidak tersedia</span>';
-															} 
-															echo '<tr class="align-middle">
-															<td>'.($index + 1).'</td>
-															<td>'.$menu['nama'].'</td>
-															<td>'.$menu['kategori'].'</td>
-															<td>'.$menu['harga'].'</td>
-															<td>'.$menu['deskripsi'].'</td>
-															<td class="text-center">'.$menu['status'].'</td>
-															<td class="text-center">
-															<a href="data-edit.php?id='.$menu['id'].'" class="btn btn-sm btn-warning me-1">Edit</a>
-															<a href="proses/proses-delete.php?id='.$menu['id'].'" class="btn btn-sm btn-danger" onclick="return confirm(\'Yakin ingin menghapus?\')">Hapus</a>
-															</td>
-														</tr>';
-														}
-													}
-												?>
+									<?php
+									if(count($datamenu) == 0){
+										echo '<tr class="align-middle">
+										<td colspan="10" class="text-center">Tidak ada data menu.</td>
+										</tr>';
+									} else {
+										foreach ($datamenu as $index => $menu){
+										// Status tampilan
+										if($menu['status'] == 1 || strtolower($menu['status']) == 'tersedia'){
+										$status = '<span class="badge bg-success">Tersedia</span>';
+										} else {
+										$status = '<span class="badge bg-danger">Tersedia</span>';
+										$status = '<span class="badge bg-danger">Tidak tersedia</span>';
+									}
+
+									echo '<tr class="align-middle">
+										<td>'.($index + 1).'</td>
+										<td>'.$menu['nama_menu'].'</td>
+										<td>'.$menu['kategori'].'</td>
+										<td>'.$menu['harga'].'</td>
+										<td>'.$menu['deskripsi'].'</td>
+										<td class="text-center">'.$status.'</td>
+										<td class="text-center">
+										<a href="data-edit.php?id='.$menu['id_menu'].'" class="btn btn-sm btn-warning me-1">Edit</a>
+										<a href="proses/proses-delete.php?id='.$menu['id_menu'].'" class="btn btn-sm btn-danger" onclick="return confirm(\'Yakin ingin menghapus?\')">Hapus</a>
+													</td>
+												</tr>';
+											}
+										}
+										?>
+
 											</tbody>
 										</table>
 									</div>

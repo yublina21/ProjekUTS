@@ -1,20 +1,25 @@
 <?php
+// 1️⃣ Menghubungkan ke file class-menu.php
+include_once '../config/class-menu.php';
 
-// Memasukkan file class-mahasiswa.php untuk mengakses class Mahasiswa
-include_once '../config/class-mahasiswa.php';
-// Membuat objek dari class Mahasiswa
-$mahasiswa = new Mahasiswa();
-// Mengambil id mahasiswa dari parameter GET
-$id = $_GET['id'];
-// Memanggil method deleteMahasiswa untuk menghapus data mahasiswa berdasarkan id
-$delete = $mahasiswa->deleteMahasiswa($id);
-// Mengecek apakah proses delete berhasil atau tidak - true/false
-if($delete){
-    // Jika berhasil, redirect ke halaman data-list.php dengan status deletesuccess
-    header("Location: ../data-list.php?status=deletesuccess");
+// 2️⃣ Membuat objek dari class Menu
+$menu = new Menu();
+
+// 3️⃣ Mengecek apakah ada ID dikirim lewat URL (GET)
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    // 4️⃣ Memanggil fungsi deleteMenu dari class Menu
+    $delete = $menu->deleteMenu($id);
+
+    // 5️⃣ Cek apakah proses berhasil
+    if ($delete) {
+        header("Location: ../data-list.php?status=deletesuccess");
+    } else {
+        header("Location: ../data-list.php?status=deletefailed");
+    }
 } else {
-    // Jika gagal, redirect ke halaman data-list.php dengan status deletefailed
-    header("Location: ../data-list.php?status=deletefailed");
+    // Jika tidak ada ID di URL
+    header("Location: ../data-list.php?status=noid");
 }
-
 ?>
