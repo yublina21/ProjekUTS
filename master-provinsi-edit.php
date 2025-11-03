@@ -35,7 +35,7 @@ if(isset($_GET['status'])){
 							</div>
 							<div class="col-sm-6">
 								<ol class="breadcrumb float-sm-end">
-									<li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
+									<li class="breadcrumb-item"><a href="index.php">Home</a></li>
 									<li class="breadcrumb-item active" aria-current="page">Edit Provinsi</li>
 								</ol>
 							</div>

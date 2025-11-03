@@ -38,13 +38,13 @@
                 <li class="nav-item">
                     <a href="master-prodi-list.php" class="nav-link">
                         <i class="nav-icon bi bi-building"></i>
-                        <p>Daftar Karyawan</p>
+                        <p>Daftar Menu</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="master-provinsi-list.php" class="nav-link">
                         <i class="nav-icon bi bi-briefcase-fill"></i>
-                        <p>Lokasi Restourant</p>
+                        <p>Provinsi</p>
                     </a>
                 </li>
             </ul>
