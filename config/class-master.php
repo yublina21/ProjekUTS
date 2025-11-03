@@ -5,20 +5,24 @@ include_once 'db-config.php';
 
 class MasterData extends Database {
 
-    // Method untuk mendapatkan daftar program studi
-    public function getProdi(){
-        $query = "SELECT * FROM tb_prodi";
+    // Method untuk mendapatkan daftar menu
+    public function getMenu(){
+        $query = "SELECT * FROM tb_prasman";
         $result = $this->conn->query($query);
-        $prodi = [];
+        $menu = [];
         if ($result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
                 $prodi[] = [
-                    'id' => $row['kode_prodi'],
-                    'nama' => $row['nama_prodi']
+                    'id' => $row['kode_menu'],
+                    'nama' => $row['nama_menu']
+                    'kategori' => $row['kategori']
+                    'harga' => $row['harga']
+                    'porsi' => $row['porsi']
+                    'bahan' => $row['bahan_utama']
                 ];
             }
         }
-        return $prodi;
+        return $menu;
     }
 
     // Method untuk mendapatkan daftar provinsi
@@ -46,23 +50,27 @@ class MasterData extends Database {
     }
 
     // Method untuk input data program studi
-    public function inputProdi($data){
-        $kodeProdi = $data['kode'];
-        $namaProdi = $data['nama'];
-        $query = "INSERT INTO tb_prodi (kode_prodi, nama_prodi) VALUES (?, ?)";
+    public function inputMenu($data){
+        $kodemenu = $data['kode'];
+        $namamenu = $data['nama'];
+        $kategori = $data['kategori'];
+        $harga = $data['harga'];
+        $porsi = $data['porsi'];
+        $bahan = $data['bahan'];
+        $query = "INSERT INTO tb_prasman (kode_menu, nama_menu, kategori, harga, porsi, bahan_utama) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->conn->prepare($query);
         if(!$stmt){
             return false;
         }
-        $stmt->bind_param("ss", $kodeProdi, $namaProdi);
+        $stmt->bind_param("ss", $kodemenu, $namamenu, $kategori, $harga, $porsi, $bahanutama);
         $result = $stmt->execute();
         $stmt->close();
         return $result;
     }
 
-    // Method untuk mendapatkan data program studi berdasarkan kode
-    public function getUpdateProdi($id){
-        $query = "SELECT * FROM tb_prodi WHERE kode_prodi = ?";
+    // Method untuk mendapatkan data menu berdasarkan kode
+    public function getUpdateMenu($id){
+        $query = "SELECT * FROM tb_prasman WHERE kode_menu = ?";
         $stmt = $this->conn->prepare($query);
         if(!$stmt){
             return false;
@@ -74,32 +82,40 @@ class MasterData extends Database {
         if($result->num_rows > 0){
             $row = $result->fetch_assoc();
             $prodi = [
-                'id' => $row['kode_prodi'],
-                'nama' => $row['nama_prodi']
+                'id' => $row['kode_menu'],
+                'nama' => $row['nama_menu']
+                'kategori' => $row['kategori']
+                'harga' => $row['harga']
+                'porsi' => $row['porsi']
+                'bahan' => $row['bahan_utama']
             ];
         }
         $stmt->close();
-        return $prodi;
+        return $menu;
     }
 
-    // Method untuk mengedit data program studi
-    public function updateProdi($data){
-        $kodeProdi = $data['kode'];
-        $namaProdi = $data['nama'];
-        $query = "UPDATE tb_prodi SET nama_prodi = ? WHERE kode_prodi = ?";
+    // Method untuk mengedit data menu
+    public function updateMenu($data){
+        $kodeMenu = $data['kode'];
+        $namaMenu = $data['nama'];
+        $kategori = $data['kategori'];
+        $harga= $data['harga'];
+        $porsi = $data['porsi'];
+        $bahanutama = $data['bahan'];
+        $query = "UPDATE tb_prasman SET nama_menu, kategori, harga, porsi, bahan_utama = ? WHERE kode_menu = ?";
         $stmt = $this->conn->prepare($query);
         if(!$stmt){
             return false;
         }
-        $stmt->bind_param("ss", $namaProdi, $kodeProdi);
+        $stmt->bind_param("ss", $kodemenu, $namamenu, $kategori, $harga, $porsi, $bahanutama);
         $result = $stmt->execute();
         $stmt->close();
         return $result;
     }
 
     // Method untuk menghapus data program studi
-    public function deleteProdi($id){
-        $query = "DELETE FROM tb_prodi WHERE kode_prodi = ?";
+    public function deleteMenu($id){
+        $query = "DELETE FROM tb_prasman WHERE kode_menu = ?";
         $stmt = $this->conn->prepare($query);
         if(!$stmt){
             return false;
