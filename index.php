@@ -51,7 +51,7 @@
 									</div>
 
 									<div class="card-body">
-										<p>Halo! Epic adalah Sistem Informasi CRUD Manajemen Menu dan Pesanan restoran. Aplikasi ini bertujuan untuk mengajarkan Anda bagaimana merancang dashboard pengelolaan restoran dengan konsep CRUD (Create, Read, Update, Delete) menggunakan bahasa pemrograman PHP. Seluruh penulisan kode diimplementasikan dengan paradigma OOP (Object Oriented Programming).</p>
+										<p>Halo! Epic (Every Plate Is Culinary) adalah Sistem Informasi CRUD Manajemen Menu kuliner dari berbagai daerah. Aplikasi ini bertujuan untuk mengajarkan Anda bagaimana merancang dashboard pengelolaan menu kuliner dengan konsep CRUD (Create, Read, Update, Delete) menggunakan bahasa pemrograman PHP. Seluruh penulisan kode diimplementasikan dengan paradigma OOP (Object Oriented Programming).</p>
 										<p>Silakan gunakan secara bijak, modifikasi kode, dan kembangkan fitur sesuai kebutuhan operasional restoran Anda! 🍽️👨‍🍳</p>
 										<a href="data-input.php" class="btn btn-primary btn-lg"><i class="bi bi-clipboard-data-fill"></i> Input Daftar Menu</a>
 										<a href="data-list.php" class="btn btn-success btn-lg"><i class="bi bi-card-list"></i> Lihat Daftar Menu</a>

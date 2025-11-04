@@ -1,5 +1,19 @@
 /* Taruh CSS Custom Disini */
+    /* Mengatur tampilan utama aplikasi */
 .app-main {
-    background-image: url(../img/walpaper.jpg);
-    background-size: cover;
+    background-image: url(../img/walpaper.jpg); /* Menentukan gambar latar dari folder ../img/walpaper.jpg */
+    background-size: cover; /* Membuat gambar menutupi seluruh area elemen secara proporsional */
+    background-size: auto; /*agar gambar mengisi seluruh elemen*/
+}
+
+/* Mengatur tampilan header konten */
+.app-content-header {
+    background-image: url(../img/header.jpg); /* Menentukan gambar latar header */
+    background-size: cover; /* Membuat gambar memenuhi seluruh area header tanpa distorsi */
+}
+
+/* Mengatur tampilan sidebar */
+.sidebar-wrapper {
+    background-image: url(../img/header.png); /* Menentukan gambar latar sidebar */
+    background-size: cover; /* Membuat gambar menutupi seluruh area sidebar secara proporsional */
 }

@@ -20,16 +20,13 @@ CREATE DATABASE IF NOT EXISTS `db_epic` /*!40100 DEFAULT CHARACTER SET utf8mb4 C
 USE `db_epic`;
 
 -- Dumping structure for table db_simplecrud.tb_mahasiswa
-CREATE TABLE IF NOT EXISTS `tb_mahasiswa` (
-  `id_mhs` int(11) NOT NULL AUTO_INCREMENT,
-  `nim_mhs` char(12) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `nama_mhs` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `prodi_mhs` char(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `alamat` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `provinsi` mediumint(3) NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `telp` char(20) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `status_mhs` tinyint(1) NOT NULL,
+CREATE TABLE IF NOT EXISTS `tb_menu` (
+  `id_menu` int(11) NOT NULL AUTO_INCREMENT,
+  `nama_menu` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `kategori` char(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `harga` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deskripsi` mediumint(3) NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_mhs`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
